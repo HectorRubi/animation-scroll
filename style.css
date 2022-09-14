@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap');
 
+:root {
+  --hidden-transition: all 3s;
+  --hidden-blur: blur(5px);
+  --hidden-transform: translateX(-100%);
+}
+
 body {
   background-color: #131316;
   color: #ffffff;
@@ -14,4 +20,46 @@ section {
   align-items: center;
   flex-direction: column;
   min-height: 100vh;
+}
+
+.wrapper {
+  text-align: center;
+  width: 500px;
+}
+
+.hidden {
+  opacity: 0;
+  transition: var(--hidden-transition);
+    -webkit-transition: var(--hidden-transition);
+    -moz-transition: var(--hidden-transition);
+    -ms-transition: var(--hidden-transition);
+    -o-transition: var(--hidden-transition);
+  filter: var(--hidden-blur);
+    -webkit-filter: var(--hidden-blur);
+  transform: var(--hidden-transform);
+    -webkit-transform: var(--hidden-transform);
+    -moz-transform: var(--hidden-transform);
+    -ms-transform: var(--hidden-transform);
+    -o-transform: var(--hidden-transform);
+}
+
+.show {
+  opacity: 1;
+  filter: blur(0);
+    -webkit-filter: blur(0);
+  transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+}
+
+@media(prefers-reduced-motion) {
+  .hidden {
+    transition: none;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+  }
 }
